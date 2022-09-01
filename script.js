@@ -22,38 +22,44 @@ const setAllMenu = async () => {
 }
 setAllMenu()
 
-const displayProducts = async () => {
-    const productData = await loadProducts();
-    const productHolder = document.getElementById('product-holder');
-    productData.forEach(product => {
-        console.log(product);
-        const { title, price, image } = product;
-        const productCard = document.createElement('div');
-        productCard.classList.add('col-4');
-        productCard.innerHTML = `
-        <div class="card h-100 " >
-            <img src="${image}" class="card-img-top w-100 h-100 " alt="...">
-            <div class="card-body text-center">
-                <p class="card-title fs-5 fw-bolder">${title}</p>
-                <p class="card-text fw-semibold ">Price: ${price}$</p>
-                <div class="d-grid gap-2 ">
-                    <button class="btn btn-primary btn-sm fw-semibold btn-select-player"
-                        type="button" style="--bs-btn-padding-y: .6rem;" >Show Details</button>
+const inputElem = document.getElementById('product-input');
+inputElem.addEventListener('keypress', async (event) => {
+    //finding the event and key
+    const key = event.key
+    //compare key if it is enter
+    if (key === 'Enter') {
+        const productHolder = document.getElementById('product-holder');
+        productHolder.innerHTML = '';
+        const inputValue = inputElem.value;
+        const productData = await loadProducts(); //product data is an array 
+        //finding products according to search text using filter and includes method
+        const foundProducts = productData.filter(product => product.category.includes(inputValue));
+        //filter return a array based on condition
+        //we will 
+        foundProducts.forEach(product => {
+            const { title, price, image, category } = product;
+            const productCard = document.createElement('div');
+            productCard.classList.add('col-4');
+            productCard.innerHTML = `
+            <div class="card h-100" >
+                <img src="${image}" class="card-img-top w-100 h-100" alt="...">
+                <div class="card-body text-center">
+                    <p class="card-title fs-5 fw-bolder">${title}</p>
+                    <p class="card-text fw-semibold ">Price: ${price}$</p>
+                    <p class="card-text fw-semibold ">Category: ${category}</p>
+                    <div class="d-grid gap-2 ">
+                        <button class="btn btn-primary btn-sm fw-semibold btn-select-player"
+                            type="button" style="--bs-btn-padding-y: .6rem;" >Show Details</button>
+                    </div>
                 </div>
             </div>
-         </div>
         `
-        productHolder.appendChild(productCard);
-    })
-}
-
-const searchProduct = async () => {
-    const productData = await loadProducts();
-    const inputElem = document.getElementById('product-input');
-    
-}
+            productHolder.appendChild(productCard);
+        })
+    }
+})
 
 
-
-displayProducts()
+//searchProduct()
+//displayProducts()
 loadProducts()
