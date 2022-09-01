@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products Search by product api</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body class="container">
+    <nav class="navbar navbar-expand-lg text-white justify-content-center fw-semibold bg-dark py-3 fixed-top">
+        <div class="d-flex container px-4">
+            <div class="d-flex ">
+                <input class="form-control me-2 d-block" type="search" placeholder="Search product" aria-label="Search"
+                    id="meal-input">
+            </div>
+            <h1>Search Your Product</h1>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="row container">
+                <div class="col-10  pt-2">
+                    <div class="row g-4 mt-1 " id="meal-holder">
+                        <!--      there is card here append from javascript -->
+                    </div>
+                </div>
+                <div class="col-2 pt-3 sidenav">
+                    <div class="row px-2">
+                        <h5 class=" bg-warning text-center p-2">Your Search Options</h5>
+                        <div class="col-12 pt-1 ">
+                            <ul id="search-options">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+<!-- ` <div class="card h-100 " onclick="loadDetails(${meal.idMeal})">
+    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+        <p class="card-title fs-5 fw-bolder">${meal.strMeal}</p>
+        <p class="card-text fw-semibold ">Catagory: ${meal.strCategory}</p>
+        <p class="card-text fw-regular ">Country: ${meal.strArea}</p>
+        <div class="d-grid gap-2 ">
+            <button class="btn btn-primary btn-sm fw-semibold btn-select-player"
+                type="button" style="--bs-btn-padding-y: .6rem;" onclick="loadMealForCart(${meal.idMeal})">Add to cart</button>
+        </div>
+    </div>
+</div>
+` -->
+
+
+<!-- <div class="card ">
+    <img src="${details.strMealThumb}" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+        <p class="card-title fs-5 fw-bolder">${details.strMeal}</p>
+        <p class="card-text fw-semibold ">Catagory: ${details.strCategory}</p>
+        <p class="card-text fw-regular "><span class= "fw-bold">Country: </span>${details.strArea}</p>
+        <p class="card-text fw-regular "><span class= "fw-bold">How this is made for you: </span> ${details.strInstructions}</p>
+        
+    </div>
+</div> -->
